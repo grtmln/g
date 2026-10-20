@@ -48,6 +48,7 @@ h1{font:500 clamp(2.2rem,6vw,4.8rem)/1.04 var(--display);letter-spacing:-.04em;m
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 footer{padding-bottom:clamp(20px,3vw,32px);color:var(--mist);font-size:.875rem}
 footer .wrap{display:flex;justify-content:space-between;gap:8px 16px;flex-wrap:wrap}
+
 @media(max-width:760px){.slide{grid-template-columns:1fr}.arr{width:40px;height:40px}}
 @media(prefers-reduced-motion:reduce){.logo-ring{animation:none}.slide,.slide.on{transition:none}.bar.on i::after{animation:none;transform:scaleX(1)}}
 </style>
@@ -160,6 +161,8 @@ slider.addEventListener('pointerup',function(e){if(x0!==null&&Math.abs(e.clientX
 if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){var o=document.querySelector('.orbit svg');if(o&&o.pauseAnimations)o.pauseAnimations();}
 go(0);
 })();
+
 </script>
 </body>
+</html>
 </html>
