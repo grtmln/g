@@ -62,8 +62,18 @@ span.mail{display:inline-block;align-self:flex-start;color:var(--fg);text-decora
 .logo.swap{width:min(340px,58vw)}
 .logo.swap .l1{opacity:0;filter:blur(10px) drop-shadow(0 1px 12px rgba(0,0,0,.4));transform:translateX(8px)}
 .logo.swap .l2{opacity:.82;filter:blur(0) drop-shadow(0 1px 12px rgba(0,0,0,.4));transform:translateX(0)}
-.back{display:inline-block;margin-top:34px;color:var(--fg);text-decoration:none;font-size:18px;padding:16px 28px;border:1px solid var(--line);border-radius:100px;background:var(--pill);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);text-shadow:var(--ts);transition:.3s}
+.back{display:inline-block;align-self:flex-start;width:fit-content;margin-top:34px;color:var(--fg);text-decoration:none;font-size:18px;padding:16px 28px;border:1px solid var(--line);border-radius:100px;background:var(--pill);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);text-shadow:var(--ts);transition:.3s}
 .back:hover{background:var(--fg);color:var(--pillfg)}
+@keyframes dropIn{from{opacity:0;transform:translateY(-70px)}to{opacity:1;transform:none}}
+@keyframes h1In{from{opacity:0;transform:translateY(44px);filter:blur(10px)}to{opacity:.62;transform:none;filter:blur(0)}}
+@keyframes riseIn{from{opacity:0;transform:translateY(30px);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+.logo{animation:dropIn 1.5s cubic-bezier(.16,.84,.24,1) .25s both}
+#mode{animation:dropIn 1.3s cubic-bezier(.16,.84,.24,1) .55s both}
+.kicker{animation:riseIn 1.3s cubic-bezier(.16,.84,.24,1) .9s both}
+h1{animation:h1In 1.8s cubic-bezier(.16,.84,.24,1) 1.1s both}
+.rv{opacity:0;transform:translateY(32px);transition:opacity 1.1s cubic-bezier(.16,.84,.24,1),transform 1.1s cubic-bezier(.16,.84,.24,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.logo,#mode,.kicker,h1{animation:none}.rv{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -104,6 +114,12 @@ span.mail{display:inline-block;align-self:flex-start;color:var(--fg);text-decora
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (function(){
+  /* entrance: footer content reveals as it scrolls into view */
+  (function(){var els=document.querySelectorAll('footer h2,footer .mailwrap,footer .back,footer .social,footer .copy');
+    els.forEach(function(e,i){e.classList.add('rv');e.style.transitionDelay=(i*.12)+'s'});
+    var f=document.querySelector('footer');
+    if(!('IntersectionObserver' in window)||!f){els.forEach(function(e){e.classList.add('in')});return}
+    new IntersectionObserver(function(en,ob){if(en[0].isIntersecting){els.forEach(function(e){e.classList.add('in')});ob.disconnect()}},{threshold:.15}).observe(f)})();
   /* day / night */
   var root=document.documentElement,btn=document.getElementById('mode'),lbl=document.getElementById('modeLabel'),day=0,dayT=0;
   function setMode(m,i){root.setAttribute('data-theme',m);lbl.textContent=m;dayT=m==='day'?1:0;if(i)day=dayT}
