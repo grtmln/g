@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>404 – formente</title>
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#E8ECEC;--surface:#F4F6F6;--ink:#17232B;--muted:#5A6A72;--line:#B9C4C8;--accent:#2B3FD6;--accent-ink:#FFFFFF;--tint:#CDD3F7;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;--body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;box-sizing:border-box}
+@media (prefers-color-scheme: dark){:root{--bg:#10181D;--surface:#18232A;--ink:#E7EDEF;--muted:#93A4AC;--line:#2E3E47;--accent:#8E9CFF;--accent-ink:#10181D;--tint:#26305E}}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--bg);overscroll-behavior:none}
+body{margin:0;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip;position:relative;isolation:isolate}
+.aura{position:fixed;inset:0;overflow:hidden;z-index:-1;pointer-events:none}
+.aura::before{content:"";position:absolute;inset:-15%;background:radial-gradient(40% 45% at 25% 35%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 70%),radial-gradient(35% 40% at 80% 70%,color-mix(in srgb,var(--tint) 95%,transparent),transparent 70%);animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate3d(4%,6%,0) scale(1.08)}}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;width:100%}
+header{padding-top:env(safe-area-inset-top,0px)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:24px;padding-bottom:24px}
+.logo{display:block;color:var(--ink);text-decoration:none}
+.logo svg{display:block;height:30px;width:auto;aspect-ratio:1600/166}
+@media(max-width:520px){.logo svg{height:21px}}
+.mark{fill:var(--accent)}
+.wm{fill:none;stroke:currentColor;stroke-width:25}
+.lang{display:flex;gap:2px}
+.lang button{appearance:none;background:none;border:0;padding:6px 8px;font:600 .78rem var(--body);letter-spacing:.14em;color:var(--muted);cursor:pointer;border-radius:8px}
+.lang button:hover{color:var(--ink)}
+.lang button[aria-pressed="true"]{color:var(--ink);background:color-mix(in srgb,var(--ink) 8%,transparent)}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding-top:24px;padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+.code{display:flex;align-items:flex-end;gap:clamp(10px,2vw,28px);font:300 clamp(4.5rem,min(21vw,30vh),17rem)/.8 var(--display);font-stretch:125%;letter-spacing:-.06em;margin:0 0 clamp(28px,5vh,52px)}
+.code span{display:block;padding-bottom:.02em}
+.zero{display:block;width:.78em;height:.78em;font-size:inherit;flex:none}
+.zero .sw{stroke-dasharray:100;stroke-dashoffset:100;animation:sweep 1.1s cubic-bezier(.65,0,.25,1) .3s forwards}
+.zero .leaf{fill:none;stroke:var(--bg);stroke-width:5;transform-box:view-box;transform-origin:158px 158px;animation:leaf 1.1s cubic-bezier(.65,0,.25,1) .3s forwards}
+@keyframes sweep{to{stroke-dashoffset:0}}
+@keyframes leaf{0%{transform:rotate(0);opacity:1}85%{opacity:1}100%{transform:rotate(90deg);opacity:0}}
+h1{margin:0;font:300 clamp(1.7rem,4.2vw,3rem)/1.12 var(--display);font-stretch:125%;letter-spacing:-.03em;max-width:20ch}
+p{margin:20px 0 0;max-width:46ch;color:var(--muted);font-size:1.15rem}
+.btn{display:inline-block;margin-top:32px;background:var(--accent);color:var(--accent-ink);font:600 1rem var(--body);padding:14px 26px;border-radius:999px;text-decoration:none;box-shadow:0 10px 30px -14px var(--accent);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 18px 34px -14px var(--accent)}
+.js .rise{opacity:0;transform:translateY(40px);animation:rise 1.1s cubic-bezier(.16,1,.3,1) both}
+.js .code.rise{animation-delay:.05s}
+.js h1.rise{animation-delay:1.0s}
+.js p.rise{animation-delay:1.15s}
+.js .btn.rise{animation-delay:1.3s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.js .rise{opacity:1;transform:none;animation:none}.zero .sw{animation:none;stroke-dashoffset:0}.zero .leaf{display:none}.aura::before{animation:none}}
+</style>
+</head>
+<body>
+<div class="aura" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="fm-logo" viewBox="0 168 1600 166"><path class="mark" transform="translate(0,170)" d="M158 0V158H0V95A95 95 0 0 1 95 0Z"/><g class="wm" transform="translate(115,0)"><path d="M108 327V250C108 205 140 183 195 183Q225 184 242 192M108 271H204"/><ellipse cx="314" cy="272" rx="67" ry="47"/><path d="M434 327V217M434 278C462 248 495 229 542 230"/><path d="M576 327V217M576 262C590 238 610 226 632 226C665 226 674 245 674 270V327M674 255C690 235 710 226 735 226C768 226 772 248 772 275V327"/><path id="fm-e" d="M957 304C940 316 915 318 888 318C845 318 820 298 820 272C820 244 850 226 887 226C925 226 954 242 954 266C954 282 905 286 870 282C850 279 832 272 820 262"/><path id="fm-n" d="M1008 327V217M1008 262C1030 238 1055 226 1082 226C1118 226 1132 245 1132 275V327"/><path d="M1182 190V268C1182 300 1210 318 1250 318C1275 318 1290 313 1305 306M1182 230H1272"/><use href="#fm-e" x="510"/></g></symbol><symbol id="fm-tag" viewBox="0 164 2870 244"><g class="tg" id="fm-tagg"><use href="#fm-e" x="-807"/><path transform="translate(188 0)" d="M13 327V175"/><use href="#fm-e" x="-565"/><path transform="translate(430 0)" d="M13 217C32 270 55 306 78 306C101 306 124 270 143 217"/><g transform="translate(614 0)"><path d="M137 217V327M137 250C122 232 95 226 65 226C33 226 13 245 13 272C13 299 33 318 65 318C95 318 122 304 137 282"/></g><path transform="translate(-377 0)" d="M1182 190V268C1182 300 1210 318 1250 318C1275 318 1290 313 1305 306M1182 230H1272"/><path transform="translate(956 0)" d="M13 327V217M13 168V193"/><use href="#fm-n" x="15"/><g transform="translate(1188 0)"><path d="M137 217V350C137 380 110 392 80 392C60 392 45 389 32 383M137 250C122 232 95 226 65 226C33 226 13 245 13 272C13 299 33 318 65 318C95 318 122 304 137 282"/></g><g transform="translate(1456 0)"><path d="M13 217V395M13 250C28 232 55 226 85 226C117 226 137 245 137 272C137 299 117 318 85 318C55 318 28 304 13 282"/></g><path transform="translate(1213 0)" d="M434 327V217M434 278C462 248 495 229 542 230"/><use href="#fm-e" x="976"/><path transform="translate(1971 0)" d="M137 240C120 224 90 226 70 226C35 226 13 240 13 255C13 285 137 262 137 295C137 310 110 318 78 318C45 318 25 312 13 300"/><use href="#fm-e" x="1342"/><use href="#fm-n" x="1342"/><path transform="translate(2515 0)" d="M147 250C140 232 115 226 80 226C38 226 13 244 13 272C13 300 38 318 80 318C115 318 140 312 147 294"/><use href="#fm-e" x="1896"/></g></symbol></defs></svg>
+<header><div class="wrap">
+  <a class="logo" href="/" aria-label="Formente"><svg viewBox="0 0 1600 166" aria-hidden="true"><use href="#fm-logo" width="1600" height="166"/></svg></a>
+  <div class="lang" role="group" aria-label="Jazyk"><button type="button" data-l="sk" aria-pressed="true">SK</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+</div></header>
+<main class="wrap">
+  <div class="code rise" role="img" aria-label="404">
+    <span aria-hidden="true">4</span>
+    <svg class="zero" viewBox="0 0 158 158" aria-hidden="true">
+      <defs><mask id="zm" maskUnits="userSpaceOnUse" x="-10" y="-10" width="180" height="180"><path class="sw" d="M43 158A115 115 0 0 1 158 43" pathLength="100" fill="none" stroke="#fff" stroke-width="236"/></mask></defs>
+      <g mask="url(#zm)"><path class="mark" d="M158 0V158H0V95A95 95 0 0 1 95 0Z"/></g>
+      <path class="leaf" d="M158 158H0"/>
+    </svg>
+    <span aria-hidden="true">4</span>
+  </div>
+  <h1 class="rise" data-sk="Tieto dvere sú zatvorené." data-en="This door is closed.">Tieto dvere sú zatvorené.</h1>
+  <p class="rise" data-sk="Stránka, ktorú hľadáte, neexistuje alebo sa presunula. Vráťte sa na úvod a nájdite cestu k bývaniu, s akým sa bežný trh nedá porovnať." data-en="The page you are looking for does not exist or has moved. Head back to the start and find your way to a kind of living the ordinary market can't match.">Stránka, ktorú hľadáte, neexistuje alebo sa presunula. Vráťte sa na úvod a nájdite cestu k bývaniu, s akým sa bežný trh nedá porovnať.</p>
+  <a class="btn rise" href="/" data-sk="Späť na úvod" data-en="Back to home">Späť na úvod</a>
+</main>
+<script>
+(function(){
+  var TT={sk:'404 – formente',en:'404 – formente'};
+  function set(l,save){
+    document.documentElement.lang=l;
+    document.querySelectorAll('[data-sk]').forEach(function(e){e.textContent=e.getAttribute('data-'+l)});
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-l')===l))});
+    if(save){try{localStorage.setItem('fm-lang',l)}catch(e){}}
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-l'),true)})});
+  var st=null;try{st=localStorage.getItem('fm-lang')}catch(e){}
+  if(!st){var n=(navigator.language||'sk').toLowerCase();st=(n.indexOf('sk')===0||n.indexOf('cs')===0)?'sk':'en'}
+  if(st==='en')set('en',false);
+})();
+</script>
+</body>
+</html>
