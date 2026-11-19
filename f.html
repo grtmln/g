@@ -315,8 +315,8 @@ h2{font-size:clamp(1.75rem,3.8vw,3rem);line-height:1.12;letter-spacing:-.03em}
 /* Formulár: jemné polia bez ohraničenia + GDPR */
 .invest form{color-scheme:dark}
 .invest input:not([type=checkbox]),.invest select,.invest textarea{background:rgba(255,255,255,.07);color:#E8ECEC;border:0;border-radius:12px;padding:14px 16px;transition:background .3s}
-.invest input:not([type=checkbox]):hover,.invest select:hover,.invest textarea:hover{background:rgba(255,255,255,.09)}
-.invest input:not([type=checkbox]):focus,.invest select:focus,.invest textarea:focus{background:rgba(255,255,255,.12);border:0}
+.invest input:not([type=checkbox]):hover,.invest select:hover,.invest textarea:hover{background-color:rgba(255,255,255,.09)}
+.invest input:not([type=checkbox]):focus,.invest select:focus,.invest textarea:focus{background-color:rgba(255,255,255,.12);border:0}
 .invest input:not([type=checkbox]):focus-visible,.invest select:focus-visible,.invest textarea:focus-visible{outline:2px solid rgba(142,156,255,.45);outline-offset:0}
 .invest select option{background:#18232A;color:#E8ECEC}
 .gdpr{grid-column:1/-1;display:flex;align-items:center;gap:12px;color:#A9B7BE;cursor:pointer}
@@ -341,19 +341,58 @@ header .wrap nav{margin-left:auto;margin-right:20px}
 .lang button:hover{color:var(--ink)}
 .lang button[aria-pressed="true"]{color:var(--ink);background:color-mix(in srgb,var(--ink) 8%,transparent)}
 @media(max-width:820px){.lang{margin-left:auto}}
+
+.form-wrap.done .form-in{overflow:visible}
+.invest select{appearance:none;-webkit-appearance:none;min-height:50px;padding-right:46px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1.5l6 6 6-6' fill='none' stroke='%23A9B7BE' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center}
+.invest input:not([type=checkbox]){min-height:50px}
+.invest textarea{min-height:140px}
+
+/* Skryté menu pre úzke obrazovky */
+.menu-btn{display:none;appearance:none;-webkit-appearance:none;background:none;border:0;width:44px;height:44px;margin:0 -10px 0 0;padding:0;position:relative;cursor:pointer;color:var(--ink);flex:none}
+.menu-btn span{position:absolute;left:11px;right:11px;height:1.5px;background:currentColor;transition:transform .45s cubic-bezier(.2,.7,.2,1),top .45s cubic-bezier(.2,.7,.2,1)}
+.menu-btn span:nth-child(1){top:18px}
+.menu-btn span:nth-child(2){top:25px}
+.menu-open .menu-btn span:nth-child(1){top:21.5px;transform:rotate(45deg)}
+.menu-open .menu-btn span:nth-child(2){top:21.5px;transform:rotate(-45deg)}
+.mnav{display:none}
+html.menu-open{overflow:hidden}
+.menu-open header,.menu-open header.scrolled{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+@media(max-width:820px){
+  .menu-btn{display:block}
+  .mnav{display:flex;flex-direction:column;justify-content:center;position:fixed;inset:0;z-index:45;padding:calc(env(safe-area-inset-top,0px) + 90px) 24px calc(32px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 95%,transparent);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);opacity:0;visibility:hidden;transition:opacity .45s,visibility 0s .45s}
+  .menu-open .mnav{opacity:1;visibility:visible;transition:opacity .45s}
+  .mnav nav{display:flex;flex-direction:column;gap:0}
+  .mnav nav a{padding:14px 0;border-bottom:1px solid var(--line);font:300 clamp(1.9rem,8.5vw,2.8rem)/1.15 var(--display);font-stretch:125%;letter-spacing:-.03em;color:var(--ink);opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+  .mnav nav a::after{display:none}
+  .menu-open .mnav nav a{opacity:1;transform:none;transition-delay:calc(var(--i,0)*70ms + 120ms)}
+  .mnav .lang{display:none}
+  header .wrap{gap:8px}
+  .logo>svg{height:24px;aspect-ratio:1600/180}
+}
+@media(max-width:420px){
+  header .lang{display:none}
+  .mnav .lang{display:flex;margin-top:28px}
+  .logo>svg{height:22px}
+}
+@media(prefers-reduced-motion:reduce){.mnav,.mnav nav a,.menu-btn span{transition:none}}
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="fm-logo" viewBox="0 168 1600 166"><path class="mark" transform="translate(0,170)" d="M158 0V158H0V95A95 95 0 0 1 95 0Z"/><g class="wm" transform="translate(115,0)"><path d="M108 327V250C108 205 140 183 195 183Q225 184 242 192M108 271H204"/><ellipse cx="314" cy="272" rx="67" ry="47"/><path d="M434 327V217M434 278C462 248 495 229 542 230"/><path d="M576 327V217M576 262C590 238 610 226 632 226C665 226 674 245 674 270V327M674 255C690 235 710 226 735 226C768 226 772 248 772 275V327"/><path id="fm-e" d="M957 304C940 316 915 318 888 318C845 318 820 298 820 272C820 244 850 226 887 226C925 226 954 242 954 266C954 282 905 286 870 282C850 279 832 272 820 262"/><path id="fm-n" d="M1008 327V217M1008 262C1030 238 1055 226 1082 226C1118 226 1132 245 1132 275V327"/><path d="M1182 190V268C1182 300 1210 318 1250 318C1275 318 1290 313 1305 306M1182 230H1272"/><use href="#fm-e" x="510"/></g></symbol><symbol id="fm-tag" viewBox="0 164 2870 244"><g class="tg" id="fm-tagg"><use href="#fm-e" x="-807"/><path transform="translate(188 0)" d="M13 327V175"/><use href="#fm-e" x="-565"/><path transform="translate(430 0)" d="M13 217C32 270 55 306 78 306C101 306 124 270 143 217"/><g transform="translate(614 0)"><path d="M137 217V327M137 250C122 232 95 226 65 226C33 226 13 245 13 272C13 299 33 318 65 318C95 318 122 304 137 282"/></g><path transform="translate(-377 0)" d="M1182 190V268C1182 300 1210 318 1250 318C1275 318 1290 313 1305 306M1182 230H1272"/><path transform="translate(956 0)" d="M13 327V217M13 168V193"/><use href="#fm-n" x="15"/><g transform="translate(1188 0)"><path d="M137 217V350C137 380 110 392 80 392C60 392 45 389 32 383M137 250C122 232 95 226 65 226C33 226 13 245 13 272C13 299 33 318 65 318C95 318 122 304 137 282"/></g><g transform="translate(1456 0)"><path d="M13 217V395M13 250C28 232 55 226 85 226C117 226 137 245 137 272C137 299 117 318 85 318C55 318 28 304 13 282"/></g><path transform="translate(1213 0)" d="M434 327V217M434 278C462 248 495 229 542 230"/><use href="#fm-e" x="976"/><path transform="translate(1971 0)" d="M137 240C120 224 90 226 70 226C35 226 13 240 13 255C13 285 137 262 137 295C137 310 110 318 78 318C45 318 25 312 13 300"/><use href="#fm-e" x="1342"/><use href="#fm-n" x="1342"/><path transform="translate(2515 0)" d="M147 250C140 232 115 226 80 226C38 226 13 244 13 272C13 300 38 318 80 318C115 318 140 312 147 294"/><use href="#fm-e" x="1896"/></g></symbol></defs></svg>
 <header><div class="wrap">
   <a class="logo" href="#top" aria-label="Formente – domov">
-    <svg viewBox="0 0 2120 180" aria-hidden="true"><use href="#fm-logo" width="1600" height="166"/><svg x="1650" y="30.2" width="442" height="80.5" viewBox="0 164 1340 244" style="color:var(--muted)"><use href="#fm-tagg"/></svg><svg x="1650" y="96.2" width="467" height="80.5" viewBox="1456 164 1415 244" style="color:var(--muted)"><use href="#fm-tagg"/></svg></svg>
+    <svg viewBox="0 0 2120 180" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#fm-logo" width="1600" height="166"/><svg x="1650" y="30.2" width="442" height="80.5" viewBox="0 164 1340 244" style="color:var(--muted)"><use href="#fm-tagg"/></svg><svg x="1650" y="96.2" width="467" height="80.5" viewBox="1456 164 1415 244" style="color:var(--muted)"><use href="#fm-tagg"/></svg></svg>
   </a>
   <nav aria-label="Hlavná navigácia">
     <a href="#koncept">Koncept</a><a href="#vznik">Background</a><a href="#byvanie">Bývanie</a><a href="#investovanie">Investovanie</a><a href="#partneri">Pre partnerov</a>
   </nav>
   <div class="lang" role="group" aria-label="Jazyk"><button type="button" data-l="sk" aria-pressed="true">SK</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><span></span><span></span></button>
 </div></header>
+<div class="mnav" id="mnav" aria-hidden="true" inert>
+  <nav aria-label="Hlavná navigácia"><a href="#koncept">Koncept</a><a href="#vznik">Background</a><a href="#byvanie">Bývanie</a><a href="#investovanie">Investovanie</a><a href="#partneri">Pre partnerov</a></nav>
+  <div class="lang" role="group" aria-label="Jazyk"><button type="button" data-l="sk" aria-pressed="true">SK</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+</div>
 
 <main id="top">
 <div class="wrap hero">
@@ -477,7 +516,7 @@ header .wrap nav{margin-left:auto;margin-right:20px}
     <button type="button" class="path short" data-t="Zatiaľ sa chcem informovať" aria-expanded="false" aria-controls="fw"><span class="pt">Zatiaľ sa chcem informovať</span></button>
   </div>
 
-  <div class="form-wrap" id="fw" inert><div class="form-in"><form id="f">
+  <div class="form-wrap" id="fw" inert><div class="form-in"><form id="f"><input type="text" name="_honey" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
     <label>Meno<input name="name" required autocomplete="name"></label>
     <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
     <label class="full">Ako chcete spolupracovať
@@ -614,9 +653,9 @@ document.documentElement.classList.add('js');
     btns.forEach(function(b){b.addEventListener('click',function(){
       var open=b.getAttribute('aria-expanded')==='true';
       btns.forEach(function(x){x.setAttribute('aria-expanded','false')});
-      if(open){fw.classList.remove('open');fw.setAttribute('inert','');return}
+      if(open){fw.classList.remove('open');fw.classList.remove('done');fw.setAttribute('inert','');return}
       b.setAttribute('aria-expanded','true');sel.value=b.getAttribute('data-t');
-      fw.classList.add('open');fw.removeAttribute('inert');
+      fw.classList.add('open');fw.removeAttribute('inert');clearTimeout(window.fmTm);window.fmTm=setTimeout(function(){fw.classList.add('done')},750);
       setTimeout(function(){fw.scrollIntoView({behavior:'smooth',block:'nearest'})},380);
     })});
   })();
@@ -658,11 +697,33 @@ document.documentElement.classList.add('js');
   var st=null;try{st=localStorage.getItem('fm-lang')}catch(e){}
   if(st==='en')setLang('en',false);
 })();
-document.getElementById('f').addEventListener('submit',function(e){
-  e.preventDefault();
-  document.getElementById('ok').textContent=document.documentElement.lang==='en'?'Thank you, we will be in touch.':'Ďakujeme, ozveme sa vám.';
-  this.reset();
-});
+(function(){
+  var btn=document.querySelector('.menu-btn'),pn=document.getElementById('mnav'),root=document.documentElement;
+  if(!btn||!pn)return;
+  var links=pn.querySelectorAll('nav a');
+  links.forEach(function(a,i){a.style.setProperty('--i',i)});
+  function set(o){root.classList.toggle('menu-open',o);btn.setAttribute('aria-expanded',String(o));pn.setAttribute('aria-hidden',String(!o));if(o)pn.removeAttribute('inert');else pn.setAttribute('inert','')}
+  btn.addEventListener('click',function(){set(!root.classList.contains('menu-open'))});
+  links.forEach(function(a){a.addEventListener('click',function(){set(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+  window.addEventListener('resize',function(){if(window.innerWidth>820)set(false)});
+})();
+(function(){
+  var f=document.getElementById('f'),ok=document.getElementById('ok'),btn=f.querySelector('button[type=submit]');
+  var EP='https://formsubmit.co/ajax/milanferencik91@gmail.com';
+  var EN_=function(){return document.documentElement.lang==='en'};
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var d=new FormData(f);if(d.get('_honey'))return;
+    var data={'Meno':d.get('name'),'E-mail':d.get('email'),'Spolupráca':d.get('type'),'Správa':d.get('msg')||'','GDPR súhlas':'áno','_subject':'formente – nový záujem z webu','_template':'table','_captcha':'false'};
+    btn.disabled=true;ok.textContent=EN_()?'Sending…':'Odosielam…';
+    fetch(EP,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok||j.success==='false'||j.success===false)throw new Error('send')})})
+      .then(function(){ok.textContent=EN_()?'Thank you, we will be in touch.':'Ďakujeme, ozveme sa vám.';f.reset()})
+      .catch(function(){ok.textContent=EN_()?'Sending failed. Please try again later.':'Odoslanie sa nepodarilo. Skúste to prosím neskôr.'})
+      .then(function(){btn.disabled=false});
+  });
+})();
 </script>
 </body>
 </html>
