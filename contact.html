@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="sk" data-theme="day">
 <head>
+<meta name="format-detection" content="telephone=no, email=no, address=no, date=no">
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Milan Ferenčík — greatmilan — thinkfluencing difference</title>
@@ -119,7 +121,8 @@ footer h2{margin-bottom:0}
 .bc-dep{margin:.6cqw 0 0;font-family:"Space Mono",ui-monospace,Menlo,Consolas,monospace;font-size:2.25cqw;letter-spacing:.01em;opacity:.78;text-transform:lowercase}
 .bc-ct{display:flex;flex-direction:column;gap:.9cqw;font-family:"Space Mono",ui-monospace,Menlo,Consolas,monospace;font-size:2.5cqw;line-height:1.35;letter-spacing:0}
 .bc-dim{opacity:.45}
-.bc-ct span{display:block;filter:blur(1.15cqw);-webkit-user-select:none;user-select:none}
+.bc-ct span{display:block;min-height:1.35em;pointer-events:none;filter:blur(1.5cqw);-webkit-user-select:none;user-select:none}
+.bc-ct span::after{content:attr(data-t)}
 .bc-ct i{font-style:normal;opacity:.6;margin-right:1.6cqw}
 .bc-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:4cqw}
 .bc-b .bc-in{justify-content:center;align-items:center;text-align:center;gap:11cqw}
@@ -203,7 +206,7 @@ footer{min-height:0;padding:7vh 4vw calc(5vh + env(safe-area-inset-bottom,0px))}
 <p class="bc-role">Director of Professional Reformation</p>
 <p class="bc-dep">Oddelenie <span class="bc-dim">hlbšieho</span> spojenia</p>
 </div>
-<div class="bc-ct"><span>milan@nuxnce.com</span><span>0951 959 082</span></div>
+<div class="bc-ct"><span aria-hidden="true" data-t="milan@nuxnce.com"></span><span aria-hidden="true" data-t="0951 959 082"></span></div>
 </div>
 </div>
 <div class="bc-grain"></div><div class="bc-glare"></div>
