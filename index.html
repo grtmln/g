@@ -72,9 +72,8 @@ html.presence .shade,html.presence .clock{opacity:0}
 html.presence header{opacity:.28}
 html.presence header:hover{opacity:1}
 html.presence header:has(:focus-visible){opacity:1}
-html.presence #brain{opacity:0!important}
-html.presence,html.presence *{cursor:default!important}
-html.presence button{cursor:pointer!important}
+html.presence #brain{transition:opacity 1.4s ease}
+html.presence #brain.on{opacity:.3}
 h1{text-shadow:0 6px 46px rgba(0,18,32,.17)}
 :root[data-theme="night"] h1{text-shadow:0 6px 46px rgba(0,0,0,.26)}
 header::before{content:"";position:absolute;left:0;right:0;top:0;bottom:-30px;z-index:-1;pointer-events:none;opacity:var(--hb,0);background:linear-gradient(var(--top),transparent);-webkit-backdrop-filter:blur(14px) saturate(1.15);backdrop-filter:blur(14px) saturate(1.15);-webkit-mask-image:linear-gradient(#000 58%,transparent);mask-image:linear-gradient(#000 58%,transparent)}
